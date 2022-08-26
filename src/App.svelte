@@ -1,6 +1,16 @@
 <script lang="ts">
 	import SuperiorBar from "./components/SuperiorBar.svelte";
 	import Title from "./components/Title.svelte";
+	import type IUser from "./interfaces/IUser";
+
+	let user: IUser = {
+		login: 'cu',
+		name: 'string',
+		avatar_url: 'string',
+		profile_url: 'string',
+		public_repos: 0,
+		followers: 0
+	};
 
 	let inputValue = '';
 
@@ -23,32 +33,34 @@
 		</div>
 	</header>
 
-	<div class="user">
+	<div class="user-card">
 		<SuperiorBar />
 
-		<div class="user-container">
+		<div class="user">
 			<div class="container-photo">
-				<a href="" target="_blank" rel="noopener">
-					<div class="user-photo"></div>
+				<a href={user.profile_url} target="_blank" rel="noopener">
+					<div 
+						class="user-photo"
+						style:background-image= "url({user.avatar_url})"	
+					></div>
 				</a>
 			</div>
-		</div>
 
-		<div class="user-details">
-			<div class="info">
-				Name: <span></span>
-			</div>
-			<div class="info">
-				User: <span></span>
-			</div>
-			<div class="info">
-				Followers: <span></span>
-			</div>
-			<div class="info">
-				Repos: <span></span>
+			<div class="user-details">
+				<div class="info">
+					Name: <span>{user.name}</span>
+				</div>
+				<div class="info">
+					User: <span>{user.login}</span>
+				</div>
+				<div class="info">
+					Followers: <span>{user.followers}</span>
+				</div>
+				<div class="info">
+					Repos: <span>{user.public_repos}</span>
+				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 
