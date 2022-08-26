@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Title from "./components/Title.svelte";
 
+	let inputValue = '';
+
 	function formSubmit() {
-		console.log('fuck');
+		console.log(inputValue);
 	}
 </script>
 
@@ -12,7 +14,7 @@
 
 		<div class="user-search">
 			<form on:submit|preventDefault={formSubmit}>
-				<input type="text" class="input">
+				<input type="text" class="input" bind:value={inputValue}>
 				<div class="container-button">
 					<button type="submit" class="button">Search</button>
 				</div>
