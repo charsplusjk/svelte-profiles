@@ -20,9 +20,13 @@
         </div>
 
         <div class="user-details">
+            
+            {#if user.name}
             <div class="info">
                 Name: <span>{user.name}</span>
             </div>
+            {/if}
+
             <div class="info">
                 User: <span>{user.login}</span>
             </div>

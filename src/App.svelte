@@ -8,14 +8,17 @@
 
 	let inputValue = '';
 
-	function formSubmit() {
+	async function formSubmit() {
+		const userResponse = await fetch(`https://api.github.com/users/${inputValue}`);
+		const userData = await userResponse.json();
+
 		user = {
-			login: 'cu',
-			name: 'string',
-			avatar_url: 'string',
-			profile_url: 'string',
-			public_repos: 0,
-			followers: 0
+			login: userData.login,
+			name: userData.name,
+			avatar_url: userData.avatar_url,
+			profile_url: userData.profile_url,
+			public_repos: userData.public_repos,
+			followers: userData.followers
 		}
 	}
 </script>
@@ -26,7 +29,7 @@
 
 		<div class="user-search">
 			<form on:submit|preventDefault={formSubmit}>
-				<input type="text" class="input" bind:value={inputValue}>
+				<input type="text" class="input" bind:value={inputValue} placeholder="Search user">
 				<div class="container-button">
 					<button type="submit" class="button">Search</button>
 				</div>
