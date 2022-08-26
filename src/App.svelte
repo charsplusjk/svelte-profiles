@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SuperiorBar from "./components/SuperiorBar.svelte";
 	import Title from "./components/Title.svelte";
 
 	let inputValue = '';
@@ -21,6 +22,34 @@
 			</form>
 		</div>
 	</header>
+
+	<div class="user">
+		<SuperiorBar />
+
+		<div class="user-container">
+			<div class="container-photo">
+				<a href="" target="_blank" rel="noopener">
+					<div class="user-photo"></div>
+				</a>
+			</div>
+		</div>
+
+		<div class="user-details">
+			<div class="info">
+				Name: <span></span>
+			</div>
+			<div class="info">
+				User: <span></span>
+			</div>
+			<div class="info">
+				Followers: <span></span>
+			</div>
+			<div class="info">
+				Repos: <span></span>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 <style>
@@ -86,5 +115,47 @@
 
 	.button:hover {
 		background: #4590ff;
+	}
+
+	.user-card {
+		margin-top: 65px;
+	}
+
+	.user {
+		padding: 28px 0;
+		background: rgba(255, 255, 255, 0.5);
+		box-shadow: -12px 37px 45px rgba(133, 127, 201, 0.18);
+		border-radius: 0px 0px 13px 13px;
+
+		display: flex;
+		justify-content: center;
+	}
+
+	.container-photo {
+		margin-right: 81px;
+	}
+
+	.user-photo {
+		width: 12.75rem;
+		height: 12.75rem;
+		border: 4.56px solid #2e80fa;
+		border-radius: 50%;
+		background-size: cover;
+	}
+
+	.user-details {
+		margin-right: 55px;
+	}
+
+	.user-details > .info {
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 31px;
+		color: #395278;
+	}
+
+	.user-details > .info > span {
+		color: #6781a8;
+		font-weight: normal;
 	}
 </style>
